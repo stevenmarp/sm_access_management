@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Keep the domain rule views in global_rule_views.xml,
+         this file exists as a placeholder for future expansion. -->
+
+</odoo>

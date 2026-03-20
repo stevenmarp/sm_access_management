@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sm_button_rule_view_list" model="ir.ui.view">
+        <field name="name">sm.button.rule.list</field>
+        <field name="model">sm.button.rule</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="model_id" placeholder="e.g. Sales Order"/>
+                <field name="target_type"/>
+                <field name="button_name"
+                       invisible="target_type not in ('button', 'stat_button')"
+                       placeholder="e.g. action_confirm"/>
+                <field name="tab_string"
+                       invisible="target_type != 'tab'"
+                       placeholder="e.g. Other Info"/>
+                <field name="group_ids" widget="many2many_tags"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="sm_button_rule_view_form" model="ir.ui.view">
+        <field name="name">sm.button.rule.form</field>
+        <field name="model">sm.button.rule</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="model_id" string="Hide Element on Model"/>
+                        <h1><field name="model_id" placeholder="Select Model..."/></h1>
+                    </div>
+                    <group>
+                        <group string="What to Hide">
+                            <field name="target_type" widget="radio"/>
+                            <field name="button_name"
+                                   invisible="target_type not in ('button', 'stat_button')"
+                                   placeholder="e.g. action_confirm, button_draft"/>
+                            <field name="tab_string"
+                                   invisible="target_type != 'tab'"
+                                   placeholder="e.g. Other Info, Notes"/>
+                        </group>
+                        <group string="Apply to">
+                            <field name="group_ids" widget="many2many_tags"
+                                   placeholder="Leave empty = all users"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <group>
+                        <div class="alert alert-info" role="alert">
+                            <strong><i class="fa fa-info-circle"/> How to find Button Name:</strong>
+                            <ol class="mb-0 ps-3">
+                                <li>Enable <b>Developer Mode</b> (Settings → Developer Tools)</li>
+                                <li>Open the form view of the target model</li>
+                                <li>Right-click on the button → <b>Inspect</b></li>
+                                <li>Find <code>name="..."</code> in the <code>&lt;button&gt;</code> tag</li>
+                            </ol>
+                            <p class="mb-0 mt-2">
+                                <b>Common examples:</b>
+                                action_confirm, button_draft, action_cancel,
+                                action_quotation_send, action_view_invoice,
+                                action_view_delivery
+                            </p>
+                        </div>
+                    </group>
+                    <group string="Notes">
+                        <field name="note" nolabel="1" placeholder="Optional notes..."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sm_button_rule_view_search" model="ir.ui.view">
+        <field name="name">sm.button.rule.search</field>
+        <field name="model">sm.button.rule</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="model_id"/>
+                <field name="button_name"/>
+                <field name="tab_string"/>
+                <filter name="type_button" string="Buttons" domain="[('target_type', 'in', ('button', 'stat_button'))]"/>
+                <filter name="type_tab" string="Tabs" domain="[('target_type', '=', 'tab')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_model" string="Model" context="{'group_by': 'model_id'}"/>
+                    <filter name="group_type" string="Type" context="{'group_by': 'target_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="sm_button_rule_action" model="ir.actions.act_window">
+        <field name="name">Button/Tab Access Rules</field>
+        <field name="res_model">sm.button.rule</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="sm_button_rule_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Hide buttons or tabs from form views</p>
+            <p>Select a model, choose what to hide (header button, stat button, or notebook tab),
+            and specify the button name or tab label.</p>
+        </field>
+    </record>
+
+</odoo>

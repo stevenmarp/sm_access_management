@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sm_access_rule_manager,sm.access.rule manager,model_sm_access_rule,sm_access_management.group_sm_access_manager,1,1,1,1
+access_sm_access_rule_user,sm.access.rule user,model_sm_access_rule,sm_access_management.group_sm_access_user,1,0,0,0
+access_sm_field_rule_manager,sm.field.rule manager,model_sm_field_rule,sm_access_management.group_sm_access_manager,1,1,1,1
+access_sm_field_rule_user,sm.field.rule user,model_sm_field_rule,sm_access_management.group_sm_access_user,1,0,0,0
+access_sm_menu_rule_manager,sm.menu.rule manager,model_sm_menu_rule,sm_access_management.group_sm_access_manager,1,1,1,1
+access_sm_menu_rule_user,sm.menu.rule user,model_sm_menu_rule,sm_access_management.group_sm_access_user,1,0,0,0
+access_sm_button_rule_manager,sm.button.rule manager,model_sm_button_rule,sm_access_management.group_sm_access_manager,1,1,1,1
+access_sm_button_rule_user,sm.button.rule user,model_sm_button_rule,sm_access_management.group_sm_access_user,1,0,0,0
+access_sm_chatter_rule_manager,sm.chatter.rule manager,model_sm_chatter_rule,sm_access_management.group_sm_access_manager,1,1,1,1
+access_sm_chatter_rule_user,sm.chatter.rule user,model_sm_chatter_rule,sm_access_management.group_sm_access_user,1,0,0,0
+access_sm_filter_rule_manager,sm.filter.rule manager,model_sm_filter_rule,sm_access_management.group_sm_access_manager,1,1,1,1
+access_sm_filter_rule_user,sm.filter.rule user,model_sm_filter_rule,sm_access_management.group_sm_access_user,1,0,0,0
+access_sm_global_rule_manager,sm.global.rule manager,model_sm_global_rule,sm_access_management.group_sm_access_manager,1,1,1,1
+access_sm_global_rule_user,sm.global.rule user,model_sm_global_rule,sm_access_management.group_sm_access_user,1,0,0,0
+access_sm_domain_rule_manager,sm.domain.rule manager,model_sm_domain_rule,sm_access_management.group_sm_access_manager,1,1,1,1
+access_sm_domain_rule_user,sm.domain.rule user,model_sm_domain_rule,sm_access_management.group_sm_access_user,1,0,0,0

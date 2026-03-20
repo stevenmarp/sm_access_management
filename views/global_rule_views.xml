@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sm_global_rule_view_list" model="ir.ui.view">
+        <field name="name">sm.global.rule.list</field>
+        <field name="model">sm.global.rule</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="sequence" widget="handle"/>
+                <field name="group_ids" widget="many2many_tags"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+                <field name="disable_debug" widget="boolean_toggle"/>
+                <field name="make_readonly" widget="boolean_toggle"/>
+                <field name="disable_install_module" widget="boolean_toggle"/>
+                <field name="hide_import_global" widget="boolean_toggle"/>
+                <field name="hide_export_global" widget="boolean_toggle"/>
+                <field name="hide_spreadsheet_global" widget="boolean_toggle" optional="hide"/>
+                <field name="hide_chatter_global" widget="boolean_toggle"/>
+                <field name="hide_property_global" widget="boolean_toggle" optional="hide"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="sm_global_rule_view_form" model="ir.ui.view">
+        <field name="name">sm.global.rule.form</field>
+        <field name="model">sm.global.rule</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger"
+                            invisible="active"/>
+                    <group>
+                        <group string="Target">
+                            <field name="group_ids" widget="many2many_tags"
+                                   placeholder="Leave empty = ALL users (careful!)"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                        <group string="Global Restrictions">
+                            <field name="disable_debug"/>
+                            <field name="make_readonly"/>
+                            <field name="disable_install_module"/>
+                            <field name="hide_import_global"/>
+                            <field name="hide_export_global"/>
+                            <field name="hide_spreadsheet_global"/>
+                            <field name="hide_chatter_global"/>
+                            <field name="hide_property_global"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Hidden Actions" name="hidden_actions">
+                            <field name="restricted_action_ids" widget="many2many_tags"
+                                   placeholder="Select actions to hide..."/>
+                        </page>
+                        <page string="Hidden Reports" name="hidden_reports">
+                            <field name="restricted_report_ids" widget="many2many_tags"
+                                   placeholder="Select reports to hide from Print menu..."/>
+                        </page>
+                    </notebook>
+                    <group string="Notes">
+                        <field name="note" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sm_global_rule_action" model="ir.actions.act_window">
+        <field name="name">Global Access Rules</field>
+        <field name="res_model">sm.global.rule</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a Global Access Rule</p>
+            <p>Disable debug mode, make users read-only, hide import/export globally, restrict reports and actions.</p>
+        </field>
+    </record>
+
+    <!-- Domain Rules -->
+    <record id="sm_domain_rule_view_list" model="ir.ui.view">
+        <field name="name">sm.domain.rule.list</field>
+        <field name="model">sm.domain.rule</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="model_id"/>
+                <field name="model_name" invisible="1"/>
+                <field name="domain" widget="domain" options="{'model': 'model_name'}"/>
+                <field name="group_ids" widget="many2many_tags"/>
+                <field name="restrict_create" widget="boolean_toggle"/>
+                <field name="restrict_edit" widget="boolean_toggle"/>
+                <field name="restrict_delete" widget="boolean_toggle"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="sm_domain_rule_view_form" model="ir.ui.view">
+        <field name="name">sm.domain.rule.form</field>
+        <field name="model">sm.domain.rule</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="Target">
+                            <field name="model_id"/>
+                            <field name="model_name" invisible="1"/>
+                            <field name="domain" widget="domain" options="{'model': 'model_name'}"/>
+                            <field name="group_ids" widget="many2many_tags"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="active"/>
+                        </group>
+                        <group string="Restrictions (when domain matches)">
+                            <field name="restrict_create"/>
+                            <field name="restrict_edit"/>
+                            <field name="restrict_delete"/>
+                        </group>
+                    </group>
+                    <group string="Notes">
+                        <field name="note" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sm_domain_rule_action" model="ir.actions.act_window">
+        <field name="name">Domain-Based Rules</field>
+        <field name="res_model">sm.domain.rule</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create a Domain-Based Rule</p>
+            <p>Restrict create/edit/delete based on field conditions (e.g. state = 'done' → read-only).</p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Root App Menu (only visible to Access Management Managers) -->
+    <menuitem id="menu_sm_access_root"
+              name="Access Management"
+              web_icon="sm_access_management,static/description/icon.png"
+              groups="sm_access_management.group_sm_access_manager"
+              sequence="200"/>
+
+    <!-- Dashboard Client Action -->
+    <record id="action_sm_access_dashboard" model="ir.actions.client">
+        <field name="name">Access Dashboard</field>
+        <field name="tag">sm_access_dashboard</field>
+    </record>
+
+    <!-- Sub: Dashboard -->
+    <menuitem id="menu_sm_dashboard"
+              name="Dashboard"
+              parent="menu_sm_access_root"
+              action="action_sm_access_dashboard"
+              sequence="1"/>
+
+    <!-- Sub: Model Access -->
+    <menuitem id="menu_sm_model_access"
+              name="Model Access"
+              parent="menu_sm_access_root"
+              sequence="10"/>
+
+    <menuitem id="menu_sm_access_rules"
+              name="Model Access Rules"
+              parent="menu_sm_model_access"
+              action="sm_access_rule_action"
+              sequence="10"/>
+
+    <menuitem id="menu_sm_domain_rules"
+              name="Domain-Based Rules"
+              parent="menu_sm_model_access"
+              action="sm_domain_rule_action"
+              sequence="20"/>
+
+    <!-- Sub: Field Access -->
+    <menuitem id="menu_sm_field_access"
+              name="Field Access"
+              parent="menu_sm_access_root"
+              sequence="20"/>
+
+    <menuitem id="menu_sm_field_rules"
+              name="Field Access Rules"
+              parent="menu_sm_field_access"
+              action="sm_field_rule_action"
+              sequence="10"/>
+
+    <!-- Sub: Menu Access -->
+    <menuitem id="menu_sm_menu_access"
+              name="Menu Access"
+              parent="menu_sm_access_root"
+              sequence="30"/>
+
+    <menuitem id="menu_sm_menu_rules"
+              name="Menu Access Rules"
+              parent="menu_sm_menu_access"
+              action="sm_menu_rule_action"
+              sequence="10"/>
+
+    <!-- Sub: Button/Tab Access -->
+    <menuitem id="menu_sm_button_access"
+              name="Button/Tab Access"
+              parent="menu_sm_access_root"
+              sequence="40"/>
+
+    <menuitem id="menu_sm_button_rules"
+              name="Button/Tab Rules"
+              parent="menu_sm_button_access"
+              action="sm_button_rule_action"
+              sequence="10"/>
+
+    <!-- Sub: Chatter Access -->
+    <menuitem id="menu_sm_chatter_access"
+              name="Chatter Access"
+              parent="menu_sm_access_root"
+              sequence="50"/>
+
+    <menuitem id="menu_sm_chatter_rules"
+              name="Chatter Access Rules"
+              parent="menu_sm_chatter_access"
+              action="sm_chatter_rule_action"
+              sequence="10"/>
+
+    <!-- Sub: Filter Access -->
+    <menuitem id="menu_sm_filter_access"
+              name="Filter Access"
+              parent="menu_sm_access_root"
+              sequence="60"/>
+
+    <menuitem id="menu_sm_filter_rules"
+              name="Filter Access Rules"
+              parent="menu_sm_filter_access"
+              action="sm_filter_rule_action"
+              sequence="10"/>
+
+    <!-- Sub: Global Settings -->
+    <menuitem id="menu_sm_global_access"
+              name="Global Settings"
+              parent="menu_sm_access_root"
+              sequence="70"/>
+
+    <menuitem id="menu_sm_global_rules"
+              name="Global Access Rules"
+              parent="menu_sm_global_access"
+              action="sm_global_rule_action"
+              sequence="10"/>
+
+</odoo>

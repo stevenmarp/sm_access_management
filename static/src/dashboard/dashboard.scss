@@ -1,0 +1,53 @@
+.sm_access_dashboard {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.sm_access_dashboard .card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 8px;
+}
+
+.sm_access_dashboard .card.cursor-pointer:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+.sm_access_dashboard .card h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.sm_access_dashboard .card small {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.sm_access_dashboard .cursor-pointer {
+    cursor: pointer;
+}
+
+.sm_access_dashboard .badge {
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.sm_access_dashboard .table-sm td {
+    padding: 0.5rem 0.75rem;
+    vertical-align: middle;
+    font-size: 0.85rem;
+}
+
+.sm_access_dashboard .card-header h5 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sm_access_dashboard .card h3 {
+        font-size: 1.5rem;
+    }
+}

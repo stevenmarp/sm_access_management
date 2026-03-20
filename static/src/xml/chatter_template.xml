@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+
+    <!-- Override chatter template to add SM access visibility checks -->
+    <t t-name="sm_access_management.ChatterPatch" t-inherit="mail.Chatter" t-inherit-mode="extension">
+
+        <!-- Hide entire chatter if smHideChatter -->
+        <xpath expr="//div[hasclass('o-mail-Chatter')]" position="attributes">
+            <attribute name="t-if">state.thread and !smHideChatter</attribute>
+        </xpath>
+
+        <!-- Hide Send Message button -->
+        <xpath expr="//button[hasclass('o-mail-Chatter-sendMessage')]" position="attributes">
+            <attribute name="t-if">!smHideSendMessage</attribute>
+        </xpath>
+
+        <!-- Hide Log Note button -->
+        <xpath expr="//button[hasclass('o-mail-Chatter-logNote')]" position="attributes">
+            <attribute name="t-if">!smHideLogNote</attribute>
+        </xpath>
+
+        <!-- Hide Activities button -->
+        <xpath expr="//button[hasclass('o-mail-Chatter-activity')]" position="attributes">
+            <attribute name="t-if">props.has_activities and !smHideActivities</attribute>
+        </xpath>
+
+        <!-- Hide Followers section -->
+        <xpath expr="//div[hasclass('o-mail-Followers')]" position="attributes">
+            <attribute name="t-if">!smHideFollowers</attribute>
+        </xpath>
+
+    </t>
+
+</templates>
