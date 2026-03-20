@@ -1,2 +1,12 @@
 __pycache__/
 *.pyc
+
+# Symlinks for local Odoo (actual files are in sm_access_management/ subfolder)
+/__init__.py
+/__manifest__.py
+/LICENSE
+/controllers
+/models
+/security
+/static
+/views
