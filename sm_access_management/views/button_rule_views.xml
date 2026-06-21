@@ -84,10 +84,9 @@
                 <field name="tab_string"/>
                 <filter name="type_button" string="Buttons" domain="[('target_type', 'in', ('button', 'stat_button'))]"/>
                 <filter name="type_tab" string="Tabs" domain="[('target_type', '=', 'tab')]"/>
-                <group expand="0" string="Group By">
-                    <filter name="group_model" string="Model" context="{'group_by': 'model_id'}"/>
-                    <filter name="group_type" string="Type" context="{'group_by': 'target_type'}"/>
-                </group>
+                <separator/>
+                <filter name="group_model" string="Model" context="{'group_by': 'model_id'}"/>
+                <filter name="group_type" string="Type" context="{'group_by': 'target_type'}"/>
             </search>
         </field>
     </record>

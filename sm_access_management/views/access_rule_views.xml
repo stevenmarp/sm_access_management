@@ -80,9 +80,8 @@
                 <field name="group_ids"/>
                 <filter name="active" string="Active" domain="[('active','=',True)]"/>
                 <filter name="archived" string="Archived" domain="[('active','=',False)]"/>
-                <group expand="0" string="Group By">
-                    <filter name="groupby_model" string="Model" context="{'group_by':'model_id'}"/>
-                </group>
+                <separator/>
+                <filter name="groupby_model" string="Model" context="{'group_by':'model_id'}"/>
             </search>
         </field>
     </record>

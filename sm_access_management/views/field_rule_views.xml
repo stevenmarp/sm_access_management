@@ -66,9 +66,8 @@
                 <field name="model_id"/>
                 <field name="field_id"/>
                 <field name="group_ids"/>
-                <group expand="0" string="Group By">
-                    <filter name="groupby_model" string="Model" context="{'group_by':'model_id'}"/>
-                </group>
+                <separator/>
+                <filter name="groupby_model" string="Model" context="{'group_by':'model_id'}"/>
             </search>
         </field>
     </record>

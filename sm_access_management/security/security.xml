@@ -8,10 +8,17 @@
         <field name="sequence">200</field>
     </record>
 
+    <record id="res_groups_privilege_sm_access_management" model="res.groups.privilege">
+        <field name="name">Access Management</field>
+        <field name="description">Manage custom backend access rules.</field>
+        <field name="sequence">200</field>
+        <field name="category_id" ref="module_category_sm_access_management"/>
+    </record>
+
     <!-- Group: User (read-only, can view rules — needed for JS to fetch rules) -->
     <record id="group_sm_access_user" model="res.groups">
         <field name="name">User</field>
-        <field name="category_id" ref="module_category_sm_access_management"/>
+        <field name="privilege_id" ref="res_groups_privilege_sm_access_management"/>
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
         <field name="comment">Read-only access to Access Management rules. Required for the frontend to apply restrictions.</field>
     </record>
@@ -19,9 +26,9 @@
     <!-- Group: Manager (full CRUD — can create/edit/delete all rules) -->
     <record id="group_sm_access_manager" model="res.groups">
         <field name="name">Manager</field>
-        <field name="category_id" ref="module_category_sm_access_management"/>
+        <field name="privilege_id" ref="res_groups_privilege_sm_access_management"/>
         <field name="implied_ids" eval="[(4, ref('group_sm_access_user'))]"/>
-        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        <field name="user_ids" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
         <field name="comment">Full access to Access Management. Can create, edit, and delete all access rules.</field>
     </record>
 

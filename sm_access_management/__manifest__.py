@@ -2,13 +2,13 @@
 # Copyright 2026 Steven Marp
 {
     "name": "Access Management | Hide Menu, Fields, Buttons, Import, Export, Chatter",
-    "version": "18.0.1.0.0",
+    "version": "19.0.1.0.0",
     "summary": "Hide Fields, Menus, Buttons, Tabs, Chatter, Filters, Import/Export, Actions — per Model, per Group, per Company",
     "description": """
 Access Management | All In One Access Rights Manager
 ======================================================
 
-Complete access management solution for Odoo 18. Control what users can see
+Complete access management solution for Odoo 19. Control what users can see
 and do — all from one place, with just a few clicks. No coding required.
 
 Features
