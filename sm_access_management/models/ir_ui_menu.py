@@ -18,7 +18,7 @@ class IrUiMenu(models.Model):
             ("company_id", "=", user.company_id.id),
         ]
         rules = Rule.search(domain)
-        user_groups = user.groups_id
+        user_groups = user.all_group_ids
 
         hidden_ids = set()
         for rule in rules:

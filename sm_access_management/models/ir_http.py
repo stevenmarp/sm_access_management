@@ -22,7 +22,7 @@ class IrHttp(models.AbstractModel):
                 ("company_id", "=", user.company_id.id),
             ]
             rules = Rule.search(domain, limit=1)
-            user_groups = user.groups_id
+            user_groups = user.all_group_ids
             for rule in rules:
                 if not rule.group_ids or (rule.group_ids & user_groups):
                     res["sm_disable_debug"] = True

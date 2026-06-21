@@ -19,7 +19,7 @@ class ResUsers(models.Model):
             "|", ("company_id", "=", False),
             ("company_id", "=", user.company_id.id),
         ]
-        user_groups = user.groups_id
+        user_groups = user.all_group_ids
 
         def _filter_by_group(rules):
             """Keep only rules that apply to current user (no groups = all users)."""
